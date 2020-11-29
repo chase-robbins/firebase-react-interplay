@@ -6,6 +6,11 @@ db.settings({
   timestampsInSnapshots: true
 });
 
+db.collection("messages").doc("test")
+    .onSnapshot(function(doc) {
+        console.log("Current data: ", doc.data());
+    });
+
 const Form = ({setInputText, inputText}) => {
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
